@@ -1,0 +1,9 @@
+# backups de texto
+*~
+*.swp
+# objetos/executáveis
+*.o
+comum
+bisseccao
+newton
+secantes

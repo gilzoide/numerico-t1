@@ -17,3 +17,17 @@ double f (double x) {
 		- 24
 	);
 }
+// Só pra constar, aqui estão as raízes da `f' nos intervalos pedidos:
+// [-1, 0] = -0.4444444444444445
+// [0, 1] = 0.8571428571428571
+
+/// Derivada da função `f':
+// f' (x) = 252*x^3 - 78*x^2 + 78*x - 26
+double df (double x) {
+	return (
+		252 * pow (x, 3)
+		- 78 * pow (x, 2)
+		+ 78 * x
+		- 26
+	);
+}

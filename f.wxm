@@ -3,6 +3,8 @@
 
 /* [wxMaxima: input   start ] */
 f (x) := 63*x^4 - 26*x^3 + 39*x^2 - 26*x - 24;
+diff (f(x), x);
+allroots (f(x));
 f (1);
 f (5);
 /* [wxMaxima: input   end   ] */
