@@ -14,6 +14,8 @@ bisseccao : bisseccao.o
 newton : newton.o
 	$(CC) $(CFLAGS) $< -o $@
 
+secantes : secantes.o
+	$(CC) $(CFLAGS) $< -o $@
 
 clean :
-	$(RM) *.o *~ comum bisseccao newton
+	$(RM) *.o *~ comum bisseccao newton secantes
