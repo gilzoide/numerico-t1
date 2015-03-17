@@ -11,6 +11,15 @@
 // Valor de retorno pra uma falha
 #define FALHOU HUGE_VAL
 
+// Retorna máximo
+double max (double a, double b) {
+	return a > b ? a : b;
+}
+
+double getError(double x){
+	return(ERRO * max(1, fabs(x)));
+}
+
 /// A função usada para os cálculos:
 // f(x) = 63*x^4 - 26*x^3 + 39*x^2 - 26*x - 24
 double f (double x) {
@@ -37,7 +46,3 @@ double df (double x) {
 	);
 }
 
-// Retorna máximo
-double max (double a, double b) {
-	return a > b ? a : b;
-}

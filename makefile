@@ -6,16 +6,16 @@ CC = gcc
 #all : comum bisseccao newton
 
 comum : comum.o
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $< -o $@ $(CFLAGS)
 
 bisseccao : bisseccao.o
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $< -o $@ $(CFLAGS)
 
 newton : newton.o
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $< -o $@ $(CFLAGS)
 
 secantes : secantes.o
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $< -o $@ $(CFLAGS)
 
 clean :
 	$(RM) *.o *~ comum bisseccao newton secantes
