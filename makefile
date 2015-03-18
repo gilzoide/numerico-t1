@@ -5,17 +5,14 @@ CC = gcc
 
 #all : comum bisseccao newton
 
-comum : comum.o
-	$(CC) $< -o $@ $(CFLAGS)
+bisseccao : bisseccao.o comum.o
+	$(CC) $^ -o $@ $(CFLAGS)
 
-bisseccao : bisseccao.o
-	$(CC) $< -o $@ $(CFLAGS)
+newton : newton.o comum.o
+	$(CC) $^ -o $@ $(CFLAGS)
 
-newton : newton.o
-	$(CC) $< -o $@ $(CFLAGS)
-
-secantes : secantes.o
-	$(CC) $< -o $@ $(CFLAGS)
+secantes : secantes.o comum.o
+	$(CC) $^ -o $@ $(CFLAGS)
 
 clean :
 	$(RM) *.o *~ comum bisseccao newton secantes

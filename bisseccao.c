@@ -1,20 +1,20 @@
 #include "comum.h"
 
 // Calcula a raiz de `f'
-double bisseccao (double (* func)(double), double a, double b, char p) {
+double bisseccao (double a, double b, char p) {
 	int i;
 	double x = a, x_anterior, x_dop, erro;
 	double raiz = FALHOU;
 
 	// testa limites do intervalo, vai que tem raiz lá
-	if (func (a) == 0) {
+	if (f (a) == 0) {
 		return a;
 	}
-	else if (func (b) == 0) {
+	else if (f (b) == 0) {
 		return b;
 	}
 	// se f(a) tem mesmo sinal de f(b), possivelmente não há raiz no intervalo
-	else if (func (a) * func (b) > 0) {
+	else if (f (a) * f (b) > 0) {
 		return FALHOU;
 	}
 
@@ -25,13 +25,15 @@ double bisseccao (double (* func)(double), double a, double b, char p) {
 		x = (a + b) / 2;
 		erro = fabs (x - x_anterior);
 
-		if(raiz == FALHOU){	printf ("%.8lf %.8lf %.8lf %.8lf %.8lf\n", a, b, x_anterior, func (x_anterior), erro);	}
+		if (raiz == FALHOU) {
+			printf ("%.8lf %.8lf %.8lf %.8lf %.8lf\n", a, b, x_anterior, f (x_anterior), erro);
+		}
 
 		// verifica se x é raiz
-		if (raiz == FALHOU && (func (x) == 0 || erro < getErro(x))) {
+		if (raiz == FALHOU && (f (x) == 0 || erro < getErro(x))) {
 			raiz = x;
 		}
-		else if (func (x) * func (a) > 0) {
+		else if (f (x) * f (a) > 0) {
 			// segunda metade é onde há a raiz
 			a = x;
 		}
@@ -40,17 +42,19 @@ double bisseccao (double (* func)(double), double a, double b, char p) {
 		}
 	}
 
-	if(!p){	return raiz;	}
-	else{	
-		printf ("%lf %lf %lf %lf %lf %d\n", raiz, x, x - raiz, x_anterior - raiz, x_dop - raiz, MAXITER);
-		return ((log(fabs((x-raiz) / (x_anterior-raiz)))) / (log(fabs((x_anterior-raiz) / (x_dop-raiz)))));
+	if (!p) {
+		return raiz;
+	}
+	else {
+		printf ("%lf %e %lf %lf %lf %d\n", raiz, x, x - raiz, x_anterior - raiz, x_dop - raiz, MAXITER);
+		return ((log (fabs ((x - raiz) / (x_anterior - raiz)))) / (log (fabs ((x_anterior - raiz) / (x_dop - raiz)))));
 	}
 }
 
 int main () {
-	printf ("Raiz da f entre [-1, 0]: %lf\n", bisseccao (&f, -1, 0, 0));
-	printf ("Raiz da f entre [0, 1]: %lf\n", bisseccao (&f, 0, 1, 0));
-	printf("P: %lf\n", bisseccao (&f, 0, 1, 1));
+	printf ("Raiz da f entre [-1, 0]: %lf\n", bisseccao (-1, 0, 0));
+	printf ("Raiz da f entre [0, 1]: %lf\n", bisseccao (0, 1, 0));
+	printf("P: %lf\n", bisseccao (0, 1, 1));
 
 	return 0;
 }
