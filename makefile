@@ -15,4 +15,4 @@ secantes : secantes.o comum.o
 	$(CC) $^ -o $@ $(CFLAGS)
 
 clean :
-	$(RM) *.o *~ comum bisseccao newton secantes
+	$(RM) *.o *~ comum bisseccao newton secantes *.dat
