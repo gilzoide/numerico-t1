@@ -1,8 +1,8 @@
 #include "comum.h"
 
 double secantes (double a, double b, FILE *arquivo) {
-	int i;
-	double x = a, x_anterior = b, erro;
+	int i, j;
+	double x = a, x_anterior = b, erro, p = 0, xizes[MAXITER];
 
 	if (f(a) * f(b) > 0) {
 		return FALHOU;
@@ -21,7 +21,17 @@ double secantes (double a, double b, FILE *arquivo) {
 		if (erro < getErro (x)) {
 			break;
 		}
+
+		xizes[i] = x;
 	}
+
+	for(j = 1; j < i-1; ++j){
+		p = ( log( fabs( (xizes[j+1] - x) / (xizes[j] - x) ) ) ) / ( log( fabs( (xizes[j] - x) / (xizes[j-1] - x) ) ) );
+	}
+
+	p = p/(i - 2);
+
+	printf ("Ordem de Convergencia do Metodo das Secantes: %lf\n", p);
 
 	return x;
 }
