@@ -7,3 +7,5 @@ comum
 bisseccao
 newton
 secantes
+# saídas dos testes
+*.dat
