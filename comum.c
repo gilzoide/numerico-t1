@@ -1,3 +1,8 @@
+/* comum.c
+ *
+ * Gil Barbosa Reis - 8532248
+ * Lucas Peres Nunes Matias - 8531633
+ */
 #include "comum.h"
 
 double max (double a, double b) {

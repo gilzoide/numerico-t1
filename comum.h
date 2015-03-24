@@ -1,3 +1,8 @@
+/* comum.h
+ *
+ * Gil Barbosa Reis - 8532248
+ * Lucas Peres Nunes Matias - 8531633
+ */
 #pragma once
 
 #include <math.h>
