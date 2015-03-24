@@ -14,11 +14,12 @@ double newton (double a, double b, FILE *arquivo) {
 
 		fprintf (arquivo, "%.8lf %.8lf %.8lf %.8lf\n", x, f (x), df (x), erro);
 
+		xizes[i] = x;
+
 		if (erro < getErro (x)){
 			break;
 		}
 
-		xizes[i] = x;
 	}
 
 	for(j = 1; j < i-1; ++j){
