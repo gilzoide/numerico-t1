@@ -34,15 +34,14 @@ double newton (double a, double b, FILE *arquivo) {
 
 int main () {
 	// arquivo de saída
-	FILE *arquivo = fopen ("newton.dat", "w+");
-	if (arquivo == NULL) {
-		fputs ("Erro na abertura do arquivo de saída =S", stderr);
-		return -1;
-	}
-
+	FILE *arquivo = fopen ("newton_saida1.dat", "w+");
+	assert (arquivo != NULL);
 	printf ("Raiz da f entre [-1, 0]: %lf\n", newton (-1, 0, arquivo));
-	printf ("Raiz da f entre [0.4, 1]: %lf\n", newton (0.4, 1, arquivo));
+	fclose (arquivo);
 
+	arquivo = fopen ("newton_saida2.dat", "w+");
+	assert (arquivo != NULL);
+	printf ("Raiz da f entre [0.4, 1]: %lf\n", newton (0.4, 1, arquivo));
 	fclose (arquivo);
 
 	return 0;

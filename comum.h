@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <assert.h>
 
 // Limite do erro, pra parada do cálculo
 #define ERRO 0.000001

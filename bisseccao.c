@@ -53,15 +53,14 @@ double bisseccao (double a, double b, FILE *arquivo) {
 
 int main () {
 	// arquivo de saída
-	FILE *arquivo = fopen ("bisseccao.dat", "w+");
-	if (arquivo == NULL) {
-		fputs ("Erro na abertura do arquivo de saída =S", stderr);
-		return -1;
-	}
-
+	FILE *arquivo = fopen ("bisseccao_saida1.dat", "w+");
+	assert (arquivo != NULL);
 	printf ("Raiz da f no intervalo [-1, 0]: %lf\n", bisseccao (-1, 0, arquivo));
-	printf ("Raiz da f no intervalo [0, 1]: %lf\n", bisseccao (0, 1, arquivo));
+	fclose (arquivo);
 
+	arquivo = fopen ("bisseccao_saida2.dat", "w+");
+	assert (arquivo != NULL);
+	printf ("Raiz da f no intervalo [0, 1]: %lf\n", bisseccao (0, 1, arquivo));
 	fclose (arquivo);
 
 	return 0;
