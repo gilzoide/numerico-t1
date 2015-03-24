@@ -30,6 +30,8 @@ double bisseccao (double a, double b, double raiz, FILE *arquivo) {
 
 		fprintf (arquivo, "%.8lf %.8lf %.8lf %.8lf %.8lf\n", a, b, x_anterior, f (x_anterior), erro);
 
+		xizes[i] = x;
+
 		// verifica se x é raiz
 		if (f (x) == 0 || erro < getErro(x)) {
 			break;
@@ -42,7 +44,6 @@ double bisseccao (double a, double b, double raiz, FILE *arquivo) {
 			b = x;
 		}
 
-		xizes[i] = x;
 	}
 
 	for(j = 1; j < i-1; ++j){
