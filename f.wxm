@@ -4,13 +4,13 @@
 /* [wxMaxima: input   start ] */
 f(x) := 63*x^4 - 26*x^3 + 39*x^2 - 26*x - 24;
 allroots (f(x));
-plot2d (f(x), [x, -1, 1])$
+plot2d (f(x), [x, -1, 1], [axes, solid], [title, "Gráfico 1: f(x) = 63x^4 - 26x^3 + 39x^2 - 26x - 24"])$
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
 d(x) := diff (f(x), x);
 allroots (d(x));
-plot2d (d(x), [x, -1, 1])$
+plot2d (d(x), [x, -1, 1], [axes, solid], [title, "Gráfico 2: f'(x) = 252x^3 - 78x^2 + 78x - 26"])$
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
