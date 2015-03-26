@@ -44,7 +44,7 @@ int main () {
 
 	arquivo = fopen ("secantes_saida2.dat", "w+");
 	assert (arquivo != NULL);
-	printf ("Raiz da f entre [0.4, 1]: %.8lf\n", secantes (0.4, 1, X2, arquivo));
+	printf ("Raiz da f entre [0, 1]: %.8lf\n", secantes (0, 1, X2, arquivo));
 	fclose (arquivo);
 
 	return 0;

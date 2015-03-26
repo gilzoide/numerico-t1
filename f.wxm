@@ -8,13 +8,20 @@ plot2d (f(x), [x, -1, 1], [axes, solid], [title, "Gráfico 1: f(x) = 63x^4 - 26x
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-d(x) := diff (f(x), x);
+d(x) := diff (f(x), x)$
+d(x);
 allroots (d(x));
-plot2d (d(x), [x, -1, 1], [axes, solid], [title, "Gráfico 2: f'(x) = 252x^3 - 78x^2 + 78x - 26"])$
+plot2d (d(x), [x, -1, 1], [axes, solid], [title, "Gráfico 1: f'(x) = 252x^3 - 78x^2 + 78x - 26"])$
 /* [wxMaxima: input   end   ] */
 
 /* [wxMaxima: input   start ] */
-plot2d ([f(x), d(x)], [x, -1, 1])$
+newton(x) := x - f(x)/d(x)$
+newton(x);
+plot2d (newton(x), [x, -1, 0], [y, -1, 1], [axes, solid], [title, "Gráfico 3: x - f(x)/f'(x) no intervalo [-1, 0]"])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+plot2d (newton(x), [x, 0.4, 1], [axes, solid], [title, "Gráfico 4: x - f(x)/f'(x) no intervalo [0.4, 1]"])$
 /* [wxMaxima: input   end   ] */
 
 /* Maxima can't load/batch files which end with a comment! */
